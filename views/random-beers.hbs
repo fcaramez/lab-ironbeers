@@ -1,19 +1,20 @@
-<div>
-    {{#each responseFromAPI}}
-    <div>
-        <img src="{{this.image_url}}" alt="{{this.name}}">
+<link rel='stylesheet' href='/stylesheets/styles.css' />
+<div class='random'>
+  {{#each responseFromAPI}}
+    <div class='random-img'>
+      <img class='random-img' src='{{this.image_url}}' alt='{{this.name}}' />
     </div>
-    <p>
-        {{this.name}}
-        <br>
-        <br>
-        {{this.description}}
-        <br>
-        {{this.tagline}}
-        <br>
-        {{this.food_pairing}}
-        <br>
-        {{this.brewers_tips}}
-    </p>
-    {{/each}}
+    <div class='random-text'>
+      <h4>{{this.name}}</h4>
+      <p>{{this.description}}</p>
+      <h4>Food Pairing</h4>
+      <ul>
+        {{#each this.food_pairing}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+      <p><b>Brewers Tips:</b> {{this.brewers_tips}}</p>
+    </div>
+
+  {{/each}}
 </div>
